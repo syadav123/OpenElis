@@ -63,7 +63,7 @@
         String message2 = (String)myMessages.getMessage(myLocale, key2);
 %>    
 
-<SCRIPT LANGUAGE="JavaScript1.2">
+<script LANGUAGE="JavaScript1.2">
     var targetURL="<%=request.getContextPath()%>" + "/LoginPage.do";
     var milliseconds="<%=timeOut%>";
     
@@ -95,8 +95,8 @@
     
     countDown();
 
-</SCRIPT> 
+</script> 
 
 <%      
-    }    
+    }
 %>

@@ -13,7 +13,7 @@
 <tr>
     <td width="20%">&nbsp;</td>	
     <td width="110" noWrap>&nbsp;</td>
-    <td colspan="2" align="left">
+    <td colspan="2">
         <%--bugzilla 2376--%>
         <html:button property="save" styleId="submitButton" onclick="submitOnClick(this);return false;">
   			       <bean:message key="label.button.submit"/>

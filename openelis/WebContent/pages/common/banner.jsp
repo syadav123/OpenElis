@@ -18,18 +18,22 @@
 	String bannerStyle = null;
 	String menuItems[];
 	boolean languageSwitch = false;
+	String chosenLanguage = "";
 %>
 <%
 	path = request.getContextPath();
 	basePath = path + "/";
+	chosenLanguage = SystemConfiguration.getInstance().getDefaultLocale().toLanguageTag()+"";
 	bannerStyle = SystemConfiguration.getInstance().getBannerStyle();
 	languageSwitch = "true".equals(ConfigurationProperties.getInstance().getPropertyValue(Property.allowLanguageChange));
 %>
 
 
-<script language="JavaScript1.2">
-function /*void*/ setLanguage( language ){
+<script>
+
+function setLanguage( language ){
 	//this weirdness is because we want the language to which we are changing, not the one we are in
+
     var languageMessage = "data-message-"+language;
 
 	update = confirm(jQuery("#updateMessage").attr(languageMessage));
@@ -45,18 +49,22 @@ function /*void*/ setLanguage( language ){
 //Note this is hardcoded for haiti clinical.  Message resources would be a good way to get both language and context
 function displayHelp(){
 
-    var url = '<%=basePath%>' + 'documentation/' + '<%= StringUtil.getContextualMessageForKey("documentation") %>';
+    var url = '<%= basePath%>' + 'documentation/' + '<%= StringUtil.getContextualMessageForKey("documentation") %>';
 
 	var	newwindow=window.open( url,'name','height=1000,width=850, menuBar=yes');
 
 	if (window.focus) {newwindow.focus()}
 }
 
+var chosenLanguageVar1 = '<%= chosenLanguage %>';
 </script>
 
 <!-- New additions below by mark47 -->
+<% if (chosenLanguage.equalsIgnoreCase("ar-AR")) { %>
+<link rel="stylesheet" type="text/css" href="<%=basePath%>css/menu-rtl.css?ver=<%= Versioning.getBuildNumber() %>" />
+<% } else { %>
 <link rel="stylesheet" type="text/css" href="<%=basePath%>css/menu.css?ver=<%= Versioning.getBuildNumber() %>" />
-
+<% } %>
 <%
 	if (bannerStyle == SystemConfiguration.DEFAULT_BANNER_STYLE) {
 %>
@@ -68,7 +76,7 @@ function displayHelp(){
 </div>
 
 <div align="center" style="margin: 20px auto; width: 800px">
-<h2><bean:message key="ellis.openelis" /></h2></div>
+<h2><bean:message key="ellis.openelis" /></h2>   <!-- </div> -->
 </div>
   
 
@@ -149,14 +157,16 @@ function displayHelp(){
         <option value="en_US"><bean:message bundle="setOfLanguagesBundle" key="en_US"/></option>
         <option value="fr-FR"><bean:message bundle="setOfLanguagesBundle" key="fr-FR"/></option>
         <option value="es-ES"><bean:message bundle="setOfLanguagesBundle" key="es-ES"/></option>
-		   <option value="pt-BR"><bean:message bundle="setOfLanguagesBundle" key="pt-BR"/></option>
+		<option value="pt-BR"><bean:message bundle="setOfLanguagesBundle" key="pt-BR"/></option>
+		<option value="ar-AR"><bean:message bundle="setOfLanguagesBundle" key="ar-AR"/></option>
     </select>
   </div>
   <span id = "updateMessage"
-    data-message-en_US = '<bean:message bundle="setOfLanguagesBundle" key="languageConfirmation.message.english"/>'
-    data-message-fr-FR = '<bean:message bundle="setOfLanguagesBundle" key="languageConfirmation.message.french"/>'
-    data-message-es-ES = '<bean:message bundle="setOfLanguagesBundle" key="languageConfirmation.message.spanish"/>'
-	     data-message-pt-BR = '<bean:message bundle="setOfLanguagesBundle" key="languageConfirmation.message.portuguese"/>'
+	    data-message-en_US = '<bean:message bundle="setOfLanguagesBundle" key="languageConfirmation.message.english"/>'
+	    data-message-fr-FR = '<bean:message bundle="setOfLanguagesBundle" key="languageConfirmation.message.french"/>'
+	    data-message-es-ES = '<bean:message bundle="setOfLanguagesBundle" key="languageConfirmation.message.spanish"/>'
+        data-message-pt-BR = '<bean:message bundle="setOfLanguagesBundle" key="languageConfirmation.message.portuguese"/>'
+        data-message-ar-AR = '<bean:message bundle="setOfLanguagesBundle" key="languageConfirmation.message.arabic"/>'
     ></span>
 <% } %>
 

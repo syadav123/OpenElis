@@ -6,17 +6,25 @@ language="java"
 contentType="text/html; charset=UTF-8"
 import="us.mn.state.health.lims.common.action.IActionConstants"
 import="us.mn.state.health.lims.common.util.Versioning"
+import="us.mn.state.health.lims.common.util.SystemConfiguration"
 %>
 
 <%!
 String path = "";
 String basePath = "";
+String chosenLanguage = "";
 %>
 <%
 path = request.getContextPath();
 basePath = path + "/";
+chosenLanguage = SystemConfiguration.getInstance().getDefaultLocale().toLanguageTag()+"";
 %>
+
+<% if (chosenLanguage.equalsIgnoreCase("ar-AR")) { %>
+<link rel="stylesheet" type="text/css" href="<%=basePath%>css/openElisCore-rtl.css?ver=<%= Versioning.getBuildNumber() %>" />
+<% } else { %>
 <link rel="stylesheet" type="text/css" href="<%=basePath%>css/openElisCore.css?ver=<%= Versioning.getBuildNumber() %>" />
+<% } %>
 <script language="JavaScript1.2" src="<%=basePath%>scripts/utilities.jsp"></script>
 <script type="text/javascript" src="<%=basePath%>scripts/prototype-1.5.1.js?ver=<%= Versioning.getBuildNumber() %>"></script>
 <script type="text/javascript" src="<%=basePath%>scripts/scriptaculous.js?ver=<%= Versioning.getBuildNumber() %>"></script>

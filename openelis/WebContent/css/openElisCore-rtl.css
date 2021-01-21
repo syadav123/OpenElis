@@ -1,0 +1,1802 @@
+@charset "UTF-8";
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+/* line 6, sass/openElisCore.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+}
+
+
+html {
+    direction: rtl; 
+}
+
+/* HTML5 display-role reset for older browsers */
+/* line 25, sass/openElisCore.scss */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* line 29, sass/openElisCore.scss */
+body {
+  line-height: 1;
+}
+
+/* line 32, sass/openElisCore.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 35, sass/openElisCore.scss */
+blockquote, q {
+  quotes: none;
+}
+
+/* line 38, sass/openElisCore.scss */
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+/* line 43, sass/openElisCore.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*=====================*/
+/* 
+* OpenELIS Main Stylesheet
+* Main styles used by OpenELIS
+* 
+* Authored by:
+* Clinical Informatics Research Group, University of Washington School of Nursing.
+* http://cirg.washington.edu
+*/
+/*=====================*/
+/***** New organization of CSS - started 201106  *****/
+/***** Overrides of default browser styles *****/
+/* line 63, sass/openElisCore.scss */
+body {
+  /* FIXME - set margin to 0 and then define main content area with margin/padding */
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  color: #444;
+  background-color: #FFFFFF;
+  margin-top: 0;
+}
+
+/* line 71, sass/openElisCore.scss */
+label, input, button, select, textarea {
+  font-size: 13px;
+}
+
+/* line 74, sass/openElisCore.scss */
+a img {
+  border: 0;
+}
+
+/* line 77, sass/openElisCore.scss */
+a {
+  color: #0088cc;
+}
+
+/* line 80, sass/openElisCore.scss */
+a:hover, a:focus, a:link, a:visited {
+  color: #005580;
+  text-decoration: none;
+}
+
+/* line 84, sass/openElisCore.scss */
+a:active {
+  color: #005580;
+  text-decoration: none;
+}
+
+/* line 88, sass/openElisCore.scss */
+h1 {
+  font-size: 23px;
+  line-height: normal;
+  color: #235689;
+  border-bottom: 1px dotted #cecece;
+  width: 100%;
+}
+
+/* line 95, sass/openElisCore.scss */
+h2, h3 {
+  width: 100%;
+  color: #369;
+}
+
+/* line 99, sass/openElisCore.scss */
+h2 {
+  font-size: 17px;
+  line-height: normal;
+}
+
+/* line 103, sass/openElisCore.scss */
+h3 {
+  font-size: 15px;
+  background-color: #F0F3F3;
+}
+
+/* line 107, sass/openElisCore.scss */
+p, ul {
+  color: #000000;
+  background-color: #FFFFFF;
+}
+
+/* line 111, sass/openElisCore.scss */
+ol {
+  color: #000000;
+  background-color: #C8DADA;
+}
+
+/* line 115, sass/openElisCore.scss */
+textarea {
+  width: 100%;
+}
+
+/* line 118, sass/openElisCore.scss */
+table {
+  font-size: 13px;
+  font-style: normal;
+  background-color: #FFFFFF;
+  color: #555555;
+  border: #ccc999 none;
+}
+
+/* line 125, sass/openElisCore.scss */
+th {
+  color: #555555;
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2UyZTJlMiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #e2e2e2));
+  background-image: -moz-linear-gradient(#ffffff, #e2e2e2);
+  background-image: -webkit-linear-gradient(#ffffff, #e2e2e2);
+  background-image: linear-gradient(#ffffff, #e2e2e2);
+  text-align: right;
+  padding: 5px 5px 5px 0px;
+}
+
+/* line 131, sass/openElisCore.scss */
+td {
+  padding: 5px 5px 5px 5px;
+}
+
+/* line 133, sass/openElisCore.scss */
+tr {
+  text-align: right;
+  vertical-align: middle;
+}
+
+/* line 137, sass/openElisCore.scss */
+caption {
+  text-align: right;
+  font-size: 18px;
+  color: #555555;
+  padding-bottom: 5px;
+}
+
+/* line 143, sass/openElisCore.scss */
+hr {
+  border: 1px dotted #cecece;
+  margin: 10px 0px;
+}
+
+/* line 147, sass/openElisCore.scss */
+hr.hr-style-1 {
+  border: 0;
+  height: 1px;
+  background-image: -webkit-linear-gradient(right, transparent, rgba(0, 0, 0, 0.75), transparent);
+  background-image: -moz-linear-gradient(right, transparent, rgba(0, 0, 0, 0.75), transparent);
+  background-image: -ms-linear-gradient(right, transparent, rgba(0, 0, 0, 0.75), transparent);
+  background-image: -o-linear-gradient(right, transparent, rgba(0, 0, 0, 0.75), transparent);
+}
+
+/* line 155, sass/openElisCore.scss */
+input[type="button"], input[type="file"], input[type="submit"], button {
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2VhZWFlYSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #eaeaea));
+  background-image: -moz-linear-gradient(#ffffff, #eaeaea);
+  background-image: -webkit-linear-gradient(#ffffff, #eaeaea);
+  background-image: linear-gradient(#ffffff, #eaeaea);
+  -moz-border-radius: 5px / 5px;
+  -webkit-border-radius: 5px 5px;
+  border-radius: 5px / 5px;
+  padding: 7px 15px;
+  border: 1px solid #cccccc;
+  cursor: pointer !important;
+  color: #555555;
+}
+/* line 162, sass/openElisCore.scss */
+input[type="button"]:hover, input[type="file"]:hover, input[type="submit"]:hover, button:hover {
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2U1ZTVlNSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #e5e5e5));
+  background-image: -moz-linear-gradient(#ffffff, #e5e5e5);
+  background-image: -webkit-linear-gradient(#ffffff, #e5e5e5);
+  background-image: linear-gradient(#ffffff, #e5e5e5);
+  -moz-box-shadow: #e3e3e3 -2px 2px 5px;
+  -webkit-box-shadow: #e3e3e3 -2px 2px 5px;
+  box-shadow: #e3e3e3 -2px 2px 5px;
+}
+/* line 166, sass/openElisCore.scss */
+input[type="button"]:focus, input[type="file"]:focus, input[type="submit"]:focus, button:focus {
+  box-shadow: 0px 0px 1pt 1pt #77B1DD;
+}
+/* line 169, sass/openElisCore.scss */
+input[type="button"].primary-btn, input[type="file"].primary-btn, input[type="submit"].primary-btn, button.primary-btn {
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ExZDAzMCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzg4YWYyOCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #a1d030), color-stop(100%, #88af28));
+  background-image: -moz-linear-gradient(#a1d030, #88af28);
+  background-image: -webkit-linear-gradient(#a1d030, #88af28);
+  background-image: linear-gradient(#a1d030, #88af28);
+  color: #fff;
+  border: 1px solid #88af28;
+}
+/* line 173, sass/openElisCore.scss */
+input[type="button"].primary-btn:hover, input[type="file"].primary-btn:hover, input[type="submit"].primary-btn:hover, button.primary-btn:hover {
+  background: #8eb82a;
+  border-color: #779b23;
+}
+/* line 177, sass/openElisCore.scss */
+input[type="button"].primary-btn[disabled], input[type="file"].primary-btn[disabled], input[type="submit"].primary-btn[disabled], button.primary-btn[disabled] {
+  text-shadow: none;
+  border-color: #cecece;
+}
+/* line 180, sass/openElisCore.scss */
+input[type="button"].primary-btn[disabled]:hover, input[type="file"].primary-btn[disabled]:hover, input[type="submit"].primary-btn[disabled]:hover, button.primary-btn[disabled]:hover {
+  background: none;
+  border-color: #cecece;
+}
+/* line 186, sass/openElisCore.scss */
+input[type="button"][disabled], input[type="button"] button[disabled], input[type="file"][disabled], input[type="file"] button[disabled], input[type="submit"][disabled], input[type="submit"] button[disabled], button[disabled], button button[disabled] {
+  background: #ffffff;
+  color: #a1a1a1;
+  cursor: auto !important;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+/***** End overrides of default browser styles *****/
+/***** Styles for header area *****/
+/* See menu.css for styling menu */
+/* line 198, sass/openElisCore.scss */
+#header {
+  font-size: 13px;
+  line-height: 1em;
+  min-width: 970px;
+  margin: 0px;
+  /* FIXME - temporarily using negative margin b/c default body settings and need to create content area with padding for main tables */
+  padding: 0px 12px 0 0;
+  height: 37px;
+  overflow: visible;
+  background: #00463f;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #00463f 0%, #037469 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, right top, right bottom, color-stop(0%, #00463f), color-stop(100%, #037469));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #00463f 0%, #037469 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #00463f 0%, #037469 100%);
+  /* Opera11.10+ */
+  background: -ms-linear-gradient(top, #00463f 0%, #037469 100%);
+  /* IE10+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00463f', endColorstr='#037469',GradientType=0 );
+  /* IE6-9 */
+  background: linear-gradient(to bottom, #00463f 0%, #037469 100%);
+  /* W3C */
+}
+
+/* line 215, sass/openElisCore.scss */
+#header a, #header a:active, #header a:visited {
+  font-size: 13px;
+}
+
+/* line 220, sass/openElisCore.scss */
+#oe-logo {
+  float: right;
+  margin: 0 0 0 5px;
+  display: none;
+}
+
+/* line 225, sass/openElisCore.scss */
+#oe-title {
+  font-size: 22px;
+  line-height: 27px;
+  color: #fff;
+  font-weight: bold;
+  white-space: nowrap;
+  display: none;
+}
+
+/* line 233, sass/openElisCore.scss */
+#oe-logo, #oe-title {
+  /* used for linking back to OE home */
+  cursor: pointer;
+}
+
+/* line 236, sass/openElisCore.scss */
+#oe-version {
+  line-height: 18px;
+  margin-top: 4px;
+  font-weight: bold;
+  color: #ddd;
+  overflow: auto;
+  display: none !important;
+}
+
+/* line 244, sass/openElisCore.scss */
+#appVersion {
+  float: right;
+  font-size: 11px;
+}
+
+/* Alert displays when TrainingInstallation = true */
+/* line 249, sass/openElisCore.scss */
+#training-alert {
+  float: right;
+  letter-spacing: 1px;
+  background-color: #fff;
+  color: #470016;
+  margin-right: 40px;
+  padding: 0 10px;
+  font-size: 12px;
+  white-space: nowrap;
+  /* keep on one line */
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+/* line 262, sass/openElisCore.scss */
+#training-alert span:before {
+  padding-left: 10px;
+}
+
+/* line 266, sass/openElisCore.scss */
+#training-alert span:after {
+  content: "✧";
+  padding-right: 10px;
+}
+
+/* line 270, sass/openElisCore.scss */
+#user-info {
+  font-size: 13px;
+  -webkit-border-radius: 0 0 10px 0;
+  -moz-border-radius: 0 0 10px 0;
+  border-radius: 0 0 10px 0;
+  float: left;
+  padding: 10px;
+  color: #555;
+  background-image: url("../images/menu/gradient_user_info.svg");
+  /* for IE9 - abouthalf.com/2010/10/25/internet-explorer-9-gradients-with-rounded-corners */
+  background-color: #ffa73d;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #ffa73d 0%, #ffc57f 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, right top, right bottom, color-stop(0%, #ffa73d), color-stop(100%, #ffc57f));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #ffa73d 0%, #ffc57f 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #ffa73d 0%, #ffc57f 100%);
+  /* Opera11.10+ */
+  background: -ms-linear-gradient(top, #ffa73d 0%, #ffc57f 100%);
+  /* IE10+ */
+  /* filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffa73d', endColorstr='#ffc57f',GradientType=0 ); IE6-9 */
+  background: linear-gradient(to bottom, #ffa73d 0%, #ffc57f 100%);
+  /* W3C */
+  background-size: 100% 100%;
+  /* Size, repeat and position required for IE corners/gradients issue */
+  background-repeat: repeat-x;
+  background-position: 100% 0;
+}
+
+/* line 292, sass/openElisCore.scss */
+#user-info a {
+  color: #607890;
+  text-decoration: underline;
+}
+
+/* line 296, sass/openElisCore.scss */
+#user-info a:hover {
+  color: #036;
+}
+
+/* line 299, sass/openElisCore.scss */
+#language-chooser {
+  text-align: center;
+  margin: 10px 0 5px;
+}
+
+/* line 303, sass/openElisCore.scss */
+#language-chooser a {
+  color: #036;
+  text-decoration: underline;
+}
+
+/* line 307, sass/openElisCore.scss */
+#language-chooser a:hover, #language-chooser a:active {
+  color: #D54e21;
+}
+
+/***** End - Styles for header area *****/
+/***** Styles used in conjunction with Bootstrap  *****/
+/* Needed to match /images/ path in OE */
+/* line 314, sass/openElisCore.scss */
+[class^="icon-"],
+[class*=" icon-"] {
+  background-image: url("../images/glyphicons-halflings.png");
+}
+
+/* line 318, sass/openElisCore.scss */
+.icon-white,
+.nav-tabs > .active > a > [class^="icon-"],
+.nav-tabs > .active > a > [class*=" icon-"],
+.nav-pills > .active > a > [class^="icon-"],
+.nav-pills > .active > a > [class*=" icon-"],
+.nav-list > .active > a > [class^="icon-"],
+.nav-list > .active > a > [class*=" icon-"],
+.navbar-inverse .nav > .active > a > [class^="icon-"],
+.navbar-inverse .nav > .active > a > [class*=" icon-"],
+.dropdown-menu > li > a:hover > [class^="icon-"],
+.dropdown-menu > li > a:hover > [class*=" icon-"],
+.dropdown-menu > .active > a > [class^="icon-"],
+.dropdown-menu > .active > a > [class*=" icon-"] {
+  background-image: url("../images/glyphicons-halflings-white.png");
+}
+
+/* .table-small creates a smaller version of the default bootstrap table */
+/* line 334, sass/openElisCore.scss */
+.table-small td {
+  padding: 2px 4px;
+}
+
+/* line 337, sass/openElisCore.scss */
+.table-small th {
+  padding: 4px;
+  background-color: #C8DADA;
+  color: #369;
+  font-size: 1.1em;
+}
+
+/* line 343, sass/openElisCore.scss */
+.table-small .affix {
+  position: fixed;
+  top: 0;
+  display: table-row;
+}
+
+/* Additions for UI to table headers for sorting */
+/* line 349, sass/openElisCore.scss */
+table .header {
+  cursor: pointer;
+}
+
+/* line 353, sass/openElisCore.scss */
+table .header:after {
+  content: "";
+  float: left;
+  margin-top: 7px;
+  border-width: 0 4px 4px;
+  border-style: solid;
+  border-color: #000 transparent;
+  visibility: hidden;
+  margin-right: 2px;
+}
+
+/* line 363, sass/openElisCore.scss */
+table .headerSortUp, table .headerSortDown {
+  color: #246;
+  background-color: #b0bfbf;
+  -webkit-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125);
+  -moz-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125);
+  box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125);
+}
+
+/* line 370, sass/openElisCore.scss */
+table .header:hover:after {
+  visibility: visible;
+}
+
+/* line 373, sass/openElisCore.scss */
+table .headerSortDown:after, table .headerSortDown:hover:after {
+  visibility: visible;
+  filter: alpha(opacity=60);
+  -khtml-opacity: 0.6;
+  -moz-opacity: 0.6;
+  opacity: 0.6;
+}
+
+/* line 380, sass/openElisCore.scss */
+table .headerSortUp:after {
+  border-bottom: none;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+  border-top: 4px solid #000;
+  visibility: visible;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  filter: alpha(opacity=60);
+  -khtml-opacity: 0.6;
+  -moz-opacity: 0.6;
+  opacity: 0.6;
+}
+
+/* line 394, sass/openElisCore.scss */
+.oe-report {
+  min-width: 840px;
+  margin-right: 10px;
+}
+
+/* line 398, sass/openElisCore.scss */
+.oe-report div {
+  margin-bottom: 6px;
+}
+
+/* line 401, sass/openElisCore.scss */
+.oe-report input {
+  margin-bottom: 0;
+}
+
+/* Alerts from bootstrap 2.1.1 */
+/* line 405, sass/openElisCore.scss */
+.alert {
+  padding: 8px 14px 8px 35px;
+  margin-bottom: 20px;
+  color: #c09853;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  background-color: #fcf8e3;
+  border: 1px solid #fbeed5;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+/* line 417, sass/openElisCore.scss */
+.alert h4 {
+  margin: 0;
+}
+
+/* line 421, sass/openElisCore.scss */
+.alert .close {
+  position: relative;
+  top: -2px;
+  left: -21px;
+  line-height: 20px;
+}
+
+/* line 428, sass/openElisCore.scss */
+.alert-success {
+  color: #468847;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+
+/* line 434, sass/openElisCore.scss */
+.alert-danger,
+.alert-error {
+  color: #b94a48;
+  background-color: #f2dede;
+  border-color: #eed3d7;
+}
+
+/* line 441, sass/openElisCore.scss */
+.alert-info {
+  color: #3a87ad;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+
+/* line 447, sass/openElisCore.scss */
+.alert-block {
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+/* line 452, sass/openElisCore.scss */
+.alert-block > p,
+.alert-block > ul {
+  margin-bottom: 0;
+}
+
+/* line 457, sass/openElisCore.scss */
+.alert-block p + p {
+  margin-top: 5px;
+}
+
+/* Added by mark47 */
+/* line 461, sass/openElisCore.scss */
+.alert > div {
+  margin-bottom: 2px;
+}
+
+/* line 464, sass/openElisCore.scss */
+.alert > div:last-child {
+  margin-bottom: 0px;
+}
+
+/***** End Styles used in conjunction with Bootstrap *****/
+/***** Styles used with DataTables jQuery plug-in *****/
+/* Most are in conjunction with bootstrap */
+/* line 472, sass/openElisCore.scss */
+div.dataTables_length label {
+  width: 460px;
+  float: right;
+  text-align: right;
+}
+
+/* line 477, sass/openElisCore.scss */
+div.dataTables_length select {
+  width: 75px;
+}
+
+/* line 480, sass/openElisCore.scss */
+div.dataTables_info {
+  padding-top: 8px;
+  width: 300px;
+}
+
+/* line 484, sass/openElisCore.scss */
+.dataTables_wrapper {
+  min-width: 840px;
+}
+
+/* Hides table and controls by default. jQuery shows them after load */
+/* line 488, sass/openElisCore.scss */
+#advancedTable, .show-table-options {
+  display: none;
+}
+
+/* Auto to allow table to shrink to content. Set max width by td. */
+/* line 492, sass/openElisCore.scss */
+.dataTable {
+  width: auto;
+}
+
+/* line 495, sass/openElisCore.scss */
+.dataTable th {
+  min-width: 54px;
+}
+
+/* line 498, sass/openElisCore.scss */
+.dataTable td {
+  max-width: 400px;
+}
+
+/* line 501, sass/openElisCore.scss */
+div.dataTables_filter {
+  margin-right: 24px;
+}
+
+/* line 504, sass/openElisCore.scss */
+.filter-options div, .filter-options label, div.dataTables_filter input {
+  display: inline-block;
+}
+
+/* line 507, sass/openElisCore.scss */
+.filter-options input, .filter-options select {
+  margin-bottom: 0;
+}
+
+/* line 510, sass/openElisCore.scss */
+.filter-options input {
+  width: 90px;
+}
+
+/* Row striping and hover styles */
+/* line 514, sass/openElisCore.scss */
+.sorting_1 {
+  background-color: #f7f7f7;
+}
+
+/* line 517, sass/openElisCore.scss */
+.table-striped tbody tr:nth-child(odd) td.sorting_1 {
+  background-color: #f2f2f2;
+}
+
+/* line 520, sass/openElisCore.scss */
+.table-hover tbody tr:hover td,
+.table-hover tbody tr:hover td.sorting_1,
+.table-hover tbody tr:hover th {
+  background-color: #e5e5e5;
+}
+
+/* Extra classes used in OE datatables */
+/* line 526, sass/openElisCore.scss */
+.reset-sort {
+  margin-left: 12px;
+}
+
+/* line 529, sass/openElisCore.scss */
+.show-table-options select {
+  width: 160px;
+}
+
+/* line 532, sass/openElisCore.scss */
+.time-stamp {
+  white-space: nowrap;
+  /* Keeps time from wrapping */
+}
+
+/***** End Styles used with DataTables jQuery plug-in *****/
+/* line 537, sass/openElisCore.scss */
+.order-details {
+  font-weight: bold;
+  white-space: nowrap;
+  display: none;
+}
+
+/* line 542, sass/openElisCore.scss */
+.order-details span {
+  margin-left: 15px;
+  font-weight: normal;
+}
+
+/* line 546, sass/openElisCore.scss */
+.order-details .order-number {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* line 550, sass/openElisCore.scss */
+.loading-note {
+  margin: 20px 50px;
+  font-size: 16px;
+}
+
+/* line 554, sass/openElisCore.scss */
+.loading-note img {
+  float: right;
+  margin-left: 20px;
+}
+
+/* Used for disabled fields in validation results. Width to match std input box size. */
+/* line 559, sass/openElisCore.scss */
+.results-readonly {
+  display: inline-block;
+  padding: 1px;
+  margin: 2px;
+  border: 1px solid transparent;
+  width: 65px;
+}
+
+/* line 566, sass/openElisCore.scss */
+.results-readonly.invalidHighlight {
+  padding: 1px;
+  border-width: 1px;
+}
+
+/***** To Be Sorted *****/
+/* line 573, sass/openElisCore.scss */
+div.textcontent {
+  font-size: 13px;
+  color: #000000;
+  border: none;
+  background-color: transparent;
+}
+
+/* line 579, sass/openElisCore.scss */
+div.indent {
+  padding-right: 40px;
+}
+
+/* line 582, sass/openElisCore.scss */
+div.TableMatch {
+  font-size: 13px;
+  font-style: normal;
+  background-color: #FFFFFF;
+  color: #555555;
+  border: #ccc999 none;
+}
+
+/* line 590, sass/openElisCore.scss */
+table.data {
+  width: 95%;
+  padding: 6px;
+}
+
+/* line 594, sass/openElisCore.scss */
+tr.evenRow {
+  background-color: #ffffff;
+}
+
+/* line 597, sass/openElisCore.scss */
+tr.evenRowHead {
+  background-color: #EEEEEE;
+  padding: 20px;
+}
+
+/* line 601, sass/openElisCore.scss */
+tr.oddRow {
+  background-color: #ffffff;
+}
+
+/* line 604, sass/openElisCore.scss */
+tr.oddRowHead {
+  background-color: #EEEEEE;
+}
+
+/* line 607, sass/openElisCore.scss */
+td.InterstitialHead {
+  padding: 10px;
+  border-bottom: 1px solid #cecece;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* line 613, sass/openElisCore.scss */
+td.HeadSeperator {
+  border: 1px dotted #cecece;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* line 618, sass/openElisCore.scss */
+td.Highlight {
+  background-color: #E0E026;
+  border: 0;
+}
+
+/* line 622, sass/openElisCore.scss */
+td.ruled {
+  border-collapse: collapse;
+}
+
+/* line 625, sass/openElisCore.scss */
+td.textcontent {
+  font-size: 13px;
+  color: #000000;
+  border: none;
+  background-color: #FFFFFF;
+}
+
+/* line 632, sass/openElisCore.scss */
+pre.code {
+  padding-right: 2em;
+  color: #555555;
+}
+
+/* line 637, sass/openElisCore.scss */
+h1.title, .title {
+  background-color: #8FD098;
+  border-color: #8FD098 #8FD098 #8FD098;
+}
+
+/* line 641, sass/openElisCore.scss */
+h1.txtHeader {
+  background-color: transparent;
+  border: 0;
+}
+
+/* line 646, sass/openElisCore.scss */
+button.style {
+  background-color: red;
+  width: 150px;
+  height: 150px;
+  color: #CC9933;
+}
+
+/* --- AUTOCOMPLETE CSS --- */
+/* line 654, sass/openElisCore.scss */
+.autocomplete {
+  position: absolute;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #666;
+  overflow: hidden;
+}
+
+/* line 661, sass/openElisCore.scss */
+.autocomplete ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  overflow: auto;
+}
+
+/* line 667, sass/openElisCore.scss */
+.autocomplete li {
+  display: block;
+  white-space: nowrap;
+  cursor: pointer;
+  margin: 0;
+  padding-right: 5px;
+  padding-left: 5px;
+  border: 1px solid #fff;
+}
+
+/* line 676, sass/openElisCore.scss */
+.autocomplete li.selected {
+  background-color: #cef;
+  border-top: 1px solid #9bc;
+  border-bottom: 1px solid #9bc;
+}
+
+/* line 681, sass/openElisCore.scss */
+.ui-autocomplete {
+  min-width: 240px;
+}
+
+/* line 684, sass/openElisCore.scss */
+.ui-autocomplete-input {
+  min-width: 266px;
+}
+
+/* Animated throbber */
+/* line 689, sass/openElisCore.scss */
+input.form-autocomplete {
+  background: url("../images/throbber.gif") no-repeat 0% 2px;
+  /*Diane added this*/
+  background-color: #FFFFFF;
+}
+
+/* line 695, sass/openElisCore.scss */
+input.error {
+  border-color: #FF0000;
+}
+
+/* --- HTML CONTENT CSS --- */
+/* line 700, sass/openElisCore.scss */
+#modelDescription {
+  position: absolute;
+  right: 300px;
+  width: 300px;
+  min-height: 100px;
+  background: #ffe;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #666 #666 #ccc #ccc;
+  padding: 5px;
+}
+
+/* line 712, sass/openElisCore.scss */
+#htmlContentForm {
+  width: 350px;
+}
+
+/* --- CALLOUT CSS --- */
+/* line 719, sass/openElisCore.scss */
+.olbg {
+  background-color: #999;
+}
+
+/* line 721, sass/openElisCore.scss */
+.olcg {
+  background-color: #000;
+}
+
+/* line 722, sass/openElisCore.scss */
+.olfg {
+  background-color: #ddd;
+}
+
+/* line 723, sass/openElisCore.scss */
+.olcap {
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* line 724, sass/openElisCore.scss */
+a.olclo {
+  font-size: 10px;
+  font-weight: bold;
+  color: #ddd;
+}
+
+/* line 725, sass/openElisCore.scss */
+a.olclo:hover {
+  color: #fff;
+}
+
+/* line 726, sass/openElisCore.scss */
+.oltxt {
+  font-size: 12px;
+  color: #000;
+}
+
+/* --- Tree CSS --- */
+/* line 729, sass/openElisCore.scss */
+.tree {
+  list-style: none;
+  margin-right: 5px;
+  padding-right: 5px;
+}
+
+/* line 735, sass/openElisCore.scss */
+.expandedNode {
+  margin-right: 0;
+  padding-right: 0;
+  list-style: none;
+  padding-right: 10px;
+  background-image: url(../img/arrow_down.gif);
+  background-repeat: no-repeat;
+  background-position: 100% .5em;
+}
+
+/* line 745, sass/openElisCore.scss */
+.expandedNode:hover {
+  cursor: pointer;
+}
+
+/* line 749, sass/openElisCore.scss */
+.collapsedNode {
+  margin-right: 0;
+  padding-right: 0;
+  list-style: none;
+  padding-right: 10px;
+  background-image: url(../img/arrow.gif);
+  background-repeat: no-repeat;
+  background-position: 100% .5em;
+}
+
+/* line 759, sass/openElisCore.scss */
+.collapsedNode:hover {
+  cursor: pointer;
+}
+
+/*DIANE*/
+/* line 765, sass/openElisCore.scss */
+div.blank {
+  /*background: url('../images/empty.gif') no-repeat 100% 2px;*/
+  /*bugzilla 1904 adding additional field is pushing buttons off screen - this helps*/
+  padding: 2px;
+  background-color: transparent;
+  float: right;
+}
+
+/* line 773, sass/openElisCore.scss */
+div.spacebuttons {
+  background-color: #F0F3F3;
+}
+
+/* line 777, sass/openElisCore.scss */
+div.badmessage {
+  background: url("../images/bad.gif") no-repeat 0% 2px;
+  padding: 10px;
+  background-color: transparent;
+  float: right;
+}
+
+/* line 784, sass/openElisCore.scss */
+span.badmessage {
+  background: url("../images/bad.gif") no-repeat 0% 2px;
+  padding: 8px;
+  background-color: transparent;
+}
+
+/* line 789, sass/openElisCore.scss */
+div.questionmessage {
+  background: url("../images/question.gif") no-repeat 0% 2px;
+  padding: 5px;
+  background-color: #F0F3F3;
+  float: right;
+}
+
+/* line 796, sass/openElisCore.scss */
+div.notepad {
+  background: url("../images/notepad.gif") no-repeat 0% 2px;
+  background-color: #F0F3F3;
+  padding-right: 7px;
+  padding-left: 7px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  float: left;
+}
+
+/*AIS- bugzilla #1849*/
+/* line 807, sass/openElisCore.scss */
+div.notepaddata {
+  background: url("../images/notepaddata.gif") no-repeat 0% 2px;
+  background-color: #F0F3F3;
+  padding-right: 7px;
+  padding-left: 7px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  float: left;
+}
+
+/* line 817, sass/openElisCore.scss */
+.tooltip {
+  position: absolute;
+  white-space: nowrap;
+  background-color: #F0F3F3;
+  border: 1px solid black;
+  font-size: 13px;
+  z-index: 100;
+}
+
+/* line 826, sass/openElisCore.scss */
+.tooltip h4 {
+  font-size: 11px;
+  background-color: #FFCC99;
+  margin: -2px -4px 3px -4px;
+  padding: 1px 4px 1px 4px;
+}
+
+/* line 833, sass/openElisCore.scss */
+div.ttquestionmessage {
+  background: url("../images/question.gif") no-repeat 0% 2px;
+  padding: 5px;
+  background-color: #F0F3F3;
+  /*float: left;*/
+  position: absolute;
+}
+
+/* line 841, sass/openElisCore.scss */
+input.text {
+  float: right;
+  text-align: right;
+}
+
+/* line 846, sass/openElisCore.scss */
+input.readOnly {
+  border: 0;
+}
+
+/* line 850, sass/openElisCore.scss */
+td.popuplistheader {
+  text-align: center;
+  font-size: medium;
+  font-weight: bold;
+  font-style: italic;
+  padding: 5px;
+}
+
+/* line 858, sass/openElisCore.scss */
+td.popuplistdata {
+  text-align: right;
+  padding: 5px;
+  vertical-align: middle;
+}
+
+/* line 864, sass/openElisCore.scss */
+.requiredlabel {
+  color: #FF0000;
+}
+
+/* line 868, sass/openElisCore.scss */
+ul.leftnavigation {
+  border: 1px solid #cecece;
+  font-size: 13px;
+  color: #000000;
+}
+/* line 872, sass/openElisCore.scss */
+ul.leftnavigation li {
+  border-top: 1px solid #cecece;
+  overflow: hidden;
+}
+/* line 875, sass/openElisCore.scss */
+ul.leftnavigation li a {
+  font-size: 15px;
+  padding: 7px 5px;
+  display: inline-block;
+  width: 97%;
+}
+/* line 881, sass/openElisCore.scss */
+ul.leftnavigation li:hover {
+  background: #f5f5f5;
+}
+/* line 884, sass/openElisCore.scss */
+ul.leftnavigation li:first-child {
+  border-top: none;
+}
+
+/* line 890, sass/openElisCore.scss */
+div.scrollhorizontal {
+  width: 350px;
+  height: 100%;
+  overflow-x: scroll;
+}
+
+/* line 896, sass/openElisCore.scss */
+div.scrollvertical {
+  width: 100%;
+  height: 150px;
+  overflow-y: scroll;
+}
+
+/* line 902, sass/openElisCore.scss */
+div.scrollhorizontalvertical {
+  width: 350px;
+  height: 200px;
+  overflow-x: scroll;
+  overflow-y: scroll;
+}
+
+/*bugzilla #1346 add ability to hover over accession number and
+  view patient/person information (first and last name and external id)*/
+/* line 911, sass/openElisCore.scss */
+a.hoverinformation:link {
+  text-decoration: none;
+  font-size: 12px;
+  color: #336699;
+  background-color: #F0F3F3;
+}
+
+/* line 918, sass/openElisCore.scss */
+a.hoverinformation:active {
+  color: #336700;
+}
+
+/* line 922, sass/openElisCore.scss */
+a.hoverinformation:visited {
+  color: #336799;
+}
+
+/*bugzilla #1348/1853 add ability to sort columns in a table*/
+/* line 927, sass/openElisCore.scss */
+a.sortableheader:link, .sorthead {
+  font-size: 13px;
+}
+
+/* bugzilla 1772*/
+/* line 932, sass/openElisCore.scss */
+.normal {
+  background-color: #FFFFFF;
+}
+
+/* line 933, sass/openElisCore.scss */
+.highlight {
+  background-color: #C8DADA;
+}
+
+/*AIS- bugzilla #1863*/
+/* line 936, sass/openElisCore.scss */
+.withouthighlight {
+  background-color: #FFFFFF;
+  border-color: #555555;
+  border-width: 1.8px;
+  border-style: solid;
+}
+
+/* line 943, sass/openElisCore.scss */
+.highlight {
+  background-color: #C8DADA;
+  border-color: #336699;
+  border-width: 1.8px;
+  border-style: solid;
+}
+
+/* line 950, sass/openElisCore.scss */
+.yellowHighlight {
+  background-color: #faf6b1;
+  border-color: #336699;
+  border-width: 1.8px;
+  border-style: solid;
+}
+
+/* line 957, sass/openElisCore.scss */
+.invalidHighlight {
+  background-color: #ffA0A0;
+  border-color: #FF0000;
+  border-width: 1.8px;
+  border-style: solid;
+  padding: 0 10px;
+}
+
+/* line 964, sass/openElisCore.scss */
+.textButton {
+  background-color: transparent;
+  color: #111111;
+  text-align: center;
+  padding: 2;
+  border-style: none;
+  text-decoration: underline;
+}
+
+/* - - - - - - - - - - - - - - - - - - - - -
+
+Title : Lightbox CSS
+Author : Kevin Hale
+URL : http://particletree.com/features/lightbox-gone-wild/
+
+Created : January 13, 2006
+Modified : February 1, 2006
+
+- - - - - - - - - - - - - - - - - - - - - */
+/* line 985, sass/openElisCore.scss */
+#lightbox {
+  display: none;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  z-index: 9999;
+  width: 500px;
+  height: 400px;
+  margin: -220px -250px 0 0;
+  border: 1px solid #fff;
+  /*diane replaced background*/
+  /*background:#FDFCE9;*/
+  background-color: #F0F3F3;
+  /*diane added color for test*/
+  color: #F0F3F3;
+  text-align: right;
+}
+
+/* line 1002, sass/openElisCore.scss */
+#lightbox[id] {
+  position: fixed;
+}
+
+/* line 1006, sass/openElisCore.scss */
+#overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5000;
+  background-color: #999;
+  -moz-opacity: 0.4;
+  opacity: .40;
+  filter: alpha(opacity=40);
+}
+
+/* line 1019, sass/openElisCore.scss */
+#overlay[id] {
+  position: fixed;
+}
+
+/* line 1023, sass/openElisCore.scss */
+#lightbox.done #lbLoadMessage {
+  display: none;
+}
+
+/* line 1026, sass/openElisCore.scss */
+#lightbox.done #lbContent {
+  display: block;
+}
+
+/* line 1029, sass/openElisCore.scss */
+#lightbox.loading #lbContent {
+  display: none;
+}
+
+/* line 1032, sass/openElisCore.scss */
+#lightbox.loading #lbLoadMessage {
+  display: block;
+}
+
+/* line 1036, sass/openElisCore.scss */
+#lightbox.done img {
+  width: 100%;
+  height: 100%;
+}
+
+/* line 1041, sass/openElisCore.scss */
+div.lbscrollvertical {
+  width: 100%;
+  overflow-y: scroll;
+  position: absolute;
+  top: 60px;
+  bottom: 140px;
+  height: 300px;
+}
+
+/* line 1050, sass/openElisCore.scss */
+div.lbfooter {
+  width: 100%;
+  position: absolute;
+  top: 360px;
+  bottom: 40px;
+  height: 100px;
+}
+
+/* line 1058, sass/openElisCore.scss */
+.observationsQuestion {
+  width: 33%;
+}
+
+/* line 1062, sass/openElisCore.scss */
+.observationsSubquestion {
+  width: 33%;
+  padding-right: 2em;
+}
+
+/* line 1067, sass/openElisCore.scss */
+.observationsSubSubquestion {
+  width: 33%;
+  padding-right: 4em;
+}
+
+/* line 1071, sass/openElisCore.scss */
+.bulletItem {
+  text-align: left;
+}
+
+/* line 1075, sass/openElisCore.scss */
+#studies select {
+  float: right;
+  padding: 2px;
+}
+
+/* line 1080, sass/openElisCore.scss */
+td.required {
+  color: #FF0000;
+  text-align: left;
+}
+
+/* line 1085, sass/openElisCore.scss */
+.sectionTitle {
+  font-size: 14px;
+  color: #555555;
+  background-color: #F0F3F3;
+  width: 100%;
+  padding: 4px;
+  margin: 3px;
+  font-weight: bold;
+}
+
+/* an extra row intended to be used for DHTML as a template for adding another row */
+/* line 1096, sass/openElisCore.scss */
+tr.rowTemplate {
+  display: none;
+}
+
+/* END bugzilla 1895 */
+/* line 1100, sass/openElisCore.scss */
+.important-text {
+  color: #FF0000;
+}
+
+/* line 1103, sass/openElisCore.scss */
+.indented-important-message {
+  margin-right: 10px;
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* Experimental CSS for use on updated OE forms */
+/* line 1110, sass/openElisCore.scss */
+.oe-form {
+  max-width: 800px;
+  color: #369;
+  line-height: 18px;
+  padding: 0 1em;
+}
+
+/* line 1117, sass/openElisCore.scss */
+.oe-form div, .oe-form p, .oe-form ul, .oe-form li {
+  color: #555555;
+}
+
+/* line 1120, sass/openElisCore.scss */
+.oe-form ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* line 1121, sass/openElisCore.scss */
+.oe-form ul ul {
+  overflow: auto;
+}
+
+/* line 1122, sass/openElisCore.scss */
+.oe-form li {
+  clear: both;
+  padding-bottom: 1em;
+}
+
+/*.oe-form label { 
+  width:180px; display:block; float:left; line-height:26px;
+} */
+/* line 1126, sass/openElisCore.scss */
+.inline-more {
+  padding-right: 1.5em;
+}
+
+/* line 1129, sass/openElisCore.scss */
+.field-note, div.field-note {
+  padding-top: 0.2em;
+  font-style: italic;
+  font-size: 12px;
+}
+
+/* line 1134, sass/openElisCore.scss */
+.top-label {
+  display: block;
+  width: auto;
+  margin-bottom: 0.2em;
+}
+
+/* line 1139, sass/openElisCore.scss */
+.oe-form h3 {
+  margin: 1em 0 0.75em;
+}
+
+/* line 1142, sass/openElisCore.scss */
+.oe-form li input[type=radio] {
+  margin-right: 0;
+}
+
+/* line 1145, sass/openElisCore.scss */
+input[type=radio] + label {
+  margin-left: 0.5em;
+}
+
+/* End experimental CSS for use on updated OE forms */
+/* line 1150, sass/openElisCore.scss */
+.hide {
+  display: none;
+}
+
+/* line 1153, sass/openElisCore.scss */
+#ST_ID {
+  width: 70%;
+}
+
+/* line 1156, sass/openElisCore.scss */
+#healthCenterName {
+  width: 25%;
+  float: right;
+  margin-left: 2%;
+}
+
+/* line 1161, sass/openElisCore.scss */
+h1, h2 {
+  color: #333333;
+  margin-bottom: 12px;
+}
+
+/* line 1165, sass/openElisCore.scss */
+h2 {
+  color: #333333;
+  background: #f1f1f1;
+  border-radius: 5px;
+  padding: 2px 5px;
+  border: 1px solid #cecece;
+  margin-top: 10px;
+  width: 99%;
+}
+
+/* line 1174, sass/openElisCore.scss */
+p {
+  margin-bottom: 14px;
+}
+
+/* line 1177, sass/openElisCore.scss */
+.pageTitle {
+  font-size: 18px;
+}
+
+/* line 1180, sass/openElisCore.scss */
+.form-item {
+  padding: 5px 0px;
+}
+
+/* line 1183, sass/openElisCore.scss */
+.results-message {
+  color: #ffa000;
+  font-size: 1.3em;
+  padding: 5px 0px;
+}
+
+/* line 1188, sass/openElisCore.scss */
+.required-message {
+  margin-right: 20px;
+  color: #E4270D;
+}
+
+/* line 1192, sass/openElisCore.scss */
+.text-gutter {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+/* line 1196, sass/openElisCore.scss */
+.block-bottom {
+  margin-bottom: 20px;
+}
+
+/* line 1199, sass/openElisCore.scss */
+#PatientDetail table tr td {
+  padding-left: 10px;
+}
+
+/* line 1204, sass/openElisCore.scss */
+#PatientPage .edit-sample tr th {
+  border: 1px solid #cecece;
+}
+
+/* line 1209, sass/openElisCore.scss */
+.paginator {
+  width: 330px;
+  float: right;
+  background: #f1f1f1;
+}
+
+/* line 1214, sass/openElisCore.scss */
+.paginator-no-float {
+  width: 330px;
+  float: none;
+  display: inline-block;
+  background: #f1f1f1;
+}
+
+@media screen and (max-width: 1024px) {
+  /* line 1221, sass/openElisCore.scss */
+  body {
+    width: 1024px;
+  }
+
+  /* line 1222, sass/openElisCore.scss */
+  ul.leftnavigation li a {
+    font-size: 13px;
+  }
+
+  /* line 1225, sass/openElisCore.scss */
+  #mainTable select {
+    width: 120px;
+  }
+}
+/* line 1229, sass/openElisCore.scss */
+.results-page-block, .btn-block {
+  padding: 10px 0px 10px 20px;
+}
+
+/* line 1232, sass/openElisCore.scss */
+.results-page-block, .lab-results-notes {
+  margin-bottom: 10px;
+}
+
+/* line 1235, sass/openElisCore.scss */
+.results-page-block, .notes-block {
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 96.5%;
+  box-sizing: border-box;
+}
+
+/* line 1243, sass/openElisCore.scss */
+table th {
+  border-top: 1px solid #cecece;
+  border-bottom: 1px solid #cecece;
+  font-weight: bold;
+}
+/* line 1247, sass/openElisCore.scss */
+table th:first-child {
+  border-right: 1px solid #cecece;
+}
+/* line 1250, sass/openElisCore.scss */
+table th:last-child {
+  border-left: 1px solid #cecece;
+}
+/* line 1254, sass/openElisCore.scss */
+table textarea {
+  width: 96%;
+}
+/* line 1257, sass/openElisCore.scss */
+table tr.evenRow:hover, table tr.oddRow:hover, table #searchResultTable tr:hover {
+  background-color: #f5f5f5;
+}
+/* line 1260, sass/openElisCore.scss */
+table .last-child {
+  border-left: 1px solid #cecece;
+}
+
+/* line 1264, sass/openElisCore.scss */
+.referredout-highlight {
+  background: green;
+  border-radius: 8px;
+  padding: 2px 4px 2px 4px;
+  color: #fff;
+  font-size: 12px;
+}
+
+/* line 1272, sass/openElisCore.scss */
+.menu-select-header-btns {
+  background: #f1f1f1;
+}
+/* line 1274, sass/openElisCore.scss */
+.menu-select-header-btns ul li {
+  float: right;
+  padding: 0px 7px;
+}
+/* line 1277, sass/openElisCore.scss */
+.menu-select-header-btns ul li:first-child {
+  margin-right: 0px;
+}
+/* line 1280, sass/openElisCore.scss */
+.menu-select-header-btns ul li span.menu-select-header-btns-text {
+  display: inline-block;
+  padding-top: 10px;
+  color: #555555;
+}
+/* line 1285, sass/openElisCore.scss */
+.menu-select-header-btns ul li input[type="text"] {
+  margin-top: 3px;
+  height: 20px;
+}
+/* line 1289, sass/openElisCore.scss */
+.menu-select-header-btns ul li.menu-select-header-seperator {
+  border-left: 2px dotted #CAC9C8;
+}
+
+/* line 1295, sass/openElisCore.scss */
+table.administration td {
+  vertical-align: top;
+}
+/* line 1298, sass/openElisCore.scss */
+table.administration td.textcontent {
+  vertical-align: middle;
+}
+
+/* line 1303, sass/openElisCore.scss */
+#addsample-list {
+  overflow: hidden;
+  clear: both;
+}
+/* line 1306, sass/openElisCore.scss */
+#addsample-list li {
+  float: right;
+  width: 220px;
+}
+/* line 1309, sass/openElisCore.scss */
+#addsample-list li span {
+  padding: 3px 5px;
+  float: right;
+}
+/* line 1312, sass/openElisCore.scss */
+#addsample-list li span.checkbox-label {
+  width: 180px;
+  padding-top: 6px;
+}
+
+/* line 1321, sass/openElisCore.scss */
+.existingTests tr td {
+  vertical-align: top;
+}
+
+/* line 1328, sass/openElisCore.scss */
+input[name=patientNumberDirect], #patientSTNumber {
+  text-transform: uppercase;
+}
+
+/* line 1333, sass/openElisCore.scss */
+.availableTestTable th.sample-type, .availableTestTable th.accession-number {
+  width: 200px;
+}
+/* line 1336, sass/openElisCore.scss */
+.availableTestTable tr {
+  vertical-align: top;
+}
+/* line 1338, sass/openElisCore.scss */
+.availableTestTable tr li.test-name {
+  width: 250px;
+  float: right;
+  margin-bottom: 5px;
+}
+/* line 1344, sass/openElisCore.scss */
+.availableTestTable .tests {
+  border-bottom: 1px solid #ccc;
+}

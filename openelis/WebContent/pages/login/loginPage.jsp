@@ -60,7 +60,7 @@ function submitOnClick(button){
         <tr>
             <td width="20%">&nbsp;</td>
             <td width="10%" noWrap><bean:message key="login.msg.userName"/>:</td>
-            <td colspan="2" align="left">
+            <td colspan="2">
                 <%--bugzilla 2173, 2376--%>
                 <html:text name="<%=formName%>" property="loginName" onkeypress="submitOnEnter(event)"/>
             </td>
@@ -68,7 +68,7 @@ function submitOnClick(button){
         <tr>
             <td width="20%">&nbsp;</td>
             <td width="10%" noWrap><bean:message key="login.msg.password"/>:</td>
-            <td colspan="2" align="left">
+            <td colspan="2">
                 <%--bugzilla 2173, 2376--%>
                 <html:password name="<%=formName%>" property="password" onkeypress="submitOnEnter(event)"/>
             </td>

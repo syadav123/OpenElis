@@ -19,6 +19,7 @@
 String path = "";
 String basePath = "";
 String recordFrozenDisableEdits = "false";
+String chosenLanguage = "";
 %>
 <%--bugzilla 2061-2063--%>
 <%
@@ -31,7 +32,8 @@ String recordFrozenDisableEdits = "false";
 
 	       path = request.getContextPath();
            basePath = path + "/";
-	
+           chosenLanguage = SystemConfiguration.getInstance().getDefaultLocale().toLanguageTag()+"";
+
 		    String previousDisabled = "false";
             String nextDisabled = "false"; 
             if (request.getAttribute(IActionConstants.PREVIOUS_DISABLED) != null) {
@@ -86,8 +88,12 @@ function confirmSaveForwardPopup(direction)
      
  %> 
 
+<% if (chosenLanguage.equalsIgnoreCase("ar-AR")) { %>
+    var href = "<%=basePath%>css/openElisCore-rtl.css?ver=<%= Versioning.getBuildNumber() %>";
+<% } else { %>
     var href = "<%=basePath%>css/openElisCore.css?ver=<%= Versioning.getBuildNumber() %>";
- 
+<% } %>
+
     var strHTML = ""; 
  
     strHTML = '<html><link rel="stylesheet" type="text/css" href="' + href + '" /><head><'; 

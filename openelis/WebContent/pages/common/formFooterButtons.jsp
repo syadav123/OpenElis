@@ -2,6 +2,7 @@
 	contentType="text/html; charset=utf-8"
 	import="us.mn.state.health.lims.common.action.IActionConstants,org.apache.struts.Globals"
     import="us.mn.state.health.lims.common.util.Versioning"
+    import="us.mn.state.health.lims.common.util.SystemConfiguration"
 %>
 
 <%@ taglib uri="/tags/struts-bean" prefix="bean" %>
@@ -12,15 +13,16 @@
 <%!
 String path = "";
 String basePath = "";
+String chosenLanguage = "";
 %>
-
 
 
 <%--bugzilla 1908 changed some disabled values for Vietnam tomcat/linux--%>
 	<%
 	       path = request.getContextPath();
            basePath = path + "/";
-
+		   chosenLanguage = SystemConfiguration.getInstance().getDefaultLocale().toLanguageTag()+"";
+		
 		    String previousDisabled = "false";
             String nextDisabled = "false";
             if (request.getAttribute(IActionConstants.PREVIOUS_DISABLED) != null) {
@@ -70,8 +72,13 @@ function confirmSaveForwardPopup(direction)
 
  %>
 
+ <% if (chosenLanguage.equalsIgnoreCase("ar-AR")) { %>
+    var href = "<%=basePath%>css/openElisCore-rtl.css?ver=<%= Versioning.getBuildNumber() %>";
+ <% } else { %>
     var href = "<%=basePath%>css/openElisCore.css?ver=<%= Versioning.getBuildNumber() %>";
-
+ <% } %>
+ 
+    }
     var strHTML = "";
 
     strHTML = '<html><link rel="stylesheet" type="text/css" href="' + href + '" /><head><';

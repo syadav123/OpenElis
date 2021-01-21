@@ -7,6 +7,7 @@
 	import="us.mn.state.health.lims.common.util.StringUtil"
 	import="us.mn.state.health.lims.common.util.resources.ResourceLocator"
     import="us.mn.state.health.lims.common.util.Versioning"
+    import="us.mn.state.health.lims.common.util.SystemConfiguration"
  %>
 <%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
@@ -18,10 +19,12 @@
 <%!
 String path = "";
 String basePath = "";
+String chosenLanguage = "";
 %>
 <%
 path = request.getContextPath();
 basePath = path + "/";
+chosenLanguage = SystemConfiguration.getInstance().getDefaultLocale().toLanguageTag()+"";
 
 String form = (String)request.getAttribute(IActionConstants.FORM_NAME);
 
@@ -39,7 +42,11 @@ if (form == null) {
 
 %>
 <head>
+<% if (chosenLanguage.equalsIgnoreCase("ar-AR")) { %>
+<link rel="stylesheet" type="text/css" href="<%=basePath%>css/openElisCore-rtl.css?ver=<%= Versioning.getBuildNumber() %>" />
+<% } else { %>
 <link rel="stylesheet" type="text/css" href="<%=basePath%>css/openElisCore.css?ver=<%= Versioning.getBuildNumber() %>" />
+<% } %>
 <script type="text/javascript" src="<%=basePath%>scripts/jquery-1.8.0.min.js?ver=<%= Versioning.getBuildNumber() %>"></script>
 <script type="text/javascript" src="<%=basePath%>scripts/jquery.dataTables.min.js?ver=<%= Versioning.getBuildNumber() %>"></script>
 <script type="text/javascript" src="<%=basePath%>scripts/bootstrap.min.js?ver=<%= Versioning.getBuildNumber() %>"></script>

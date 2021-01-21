@@ -24,6 +24,8 @@ String serverNow = new SimpleDateFormat("yyyy/MM/dd").format(new Date());
 Boolean alwaysValidate = ConfigurationProperties.getInstance().isPropertyValueEqual(ConfigurationProperties.Property.ALWAYS_VALIDATE_RESULTS, "true");
 Boolean showReferredTestsCount = ConfigurationProperties.getInstance().isPropertyValueEqual(ConfigurationProperties.Property.SHOW_REFERRED_TESTS_COUNT, "true");
 Boolean showPatientsDetailsInSampleLabelPrint = ConfigurationProperties.getInstance().isPropertyValueEqual(ConfigurationProperties.Property.SHOW_PATIENT_DETAILS_SAMPLE_LABEL_PRINT, "true");
+
+String chosenLanguage = SystemConfiguration.getInstance().getDefaultLocale().toLanguageTag()+"";
 %>
 
 <%
@@ -31,13 +33,19 @@ path = request.getContextPath();
 basePath = path + "/";
 %>
 
+<% if (chosenLanguage!=null && chosenLanguage.equalsIgnoreCase("ar-AR")) { %>
+<link rel="stylesheet" type="text/css" href="<%=basePath%>css/slickgrid/rtl/examples-rtl.css" />
+<link rel="stylesheet" type="text/css" href="<%=basePath%>css/jquery_ui/jquery-ui-1.8.16.custom.css" />
+<link rel="stylesheet" type="text/css" href="<%=basePath%>css/jquery_ui/jquery.ui.tabs.css" />
+<link rel="stylesheet" type="text/css" href="<%=basePath%>css/slickgrid/rtl/slick.grid-rtl.css" />
+<link rel="stylesheet" type="text/css" href="<%=basePath%>css/slickgrid/rtl/dashboard-rtl.css" />
+<% } else { %>
 <link rel="stylesheet" type="text/css" href="<%=basePath%>css/slickgrid/examples.css" />
 <link rel="stylesheet" type="text/css" href="<%=basePath%>css/jquery_ui/jquery-ui-1.8.16.custom.css" />
 <link rel="stylesheet" type="text/css" href="<%=basePath%>css/jquery_ui/jquery.ui.tabs.css" />
 <link rel="stylesheet" type="text/css" href="<%=basePath%>css/slickgrid/slick.grid.css" />
 <link rel="stylesheet" type="text/css" href="<%=basePath%>css/slickgrid/dashboard.css" />
-
-
+<% } %>
 
 <script type="text/javascript" src="<%=basePath%>scripts/ui/jquery.event.drag-2.2.js"></script>
 <script type="text/javascript" src="<%=basePath%>scripts/ui/jquery.event.drop-2.2.js"></script>
