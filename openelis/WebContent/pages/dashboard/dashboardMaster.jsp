@@ -35,8 +35,8 @@ basePath = path + "/";
 
 <% if (chosenLanguage!=null && chosenLanguage.equalsIgnoreCase("ar-AR")) { %>
 <link rel="stylesheet" type="text/css" href="<%=basePath%>css/slickgrid/rtl/examples-rtl.css" />
-<link rel="stylesheet" type="text/css" href="<%=basePath%>css/jquery_ui/jquery-ui-1.8.16.custom.css" />
-<link rel="stylesheet" type="text/css" href="<%=basePath%>css/jquery_ui/jquery.ui.tabs.css" />
+<link rel="stylesheet" type="text/css" href="<%=basePath%>css/jquery_ui/rtl/jquery-ui-1.8.16.custom-rtl.css" />
+<link rel="stylesheet" type="text/css" href="<%=basePath%>css/jquery_ui/rtl/jquery.ui.tabs-rtl.css" />
 <link rel="stylesheet" type="text/css" href="<%=basePath%>css/slickgrid/rtl/slick.grid-rtl.css" />
 <link rel="stylesheet" type="text/css" href="<%=basePath%>css/slickgrid/rtl/dashboard-rtl.css" />
 <% } else { %>
