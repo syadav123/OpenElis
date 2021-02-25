@@ -25,12 +25,13 @@ Boolean alwaysValidate = ConfigurationProperties.getInstance().isPropertyValueEq
 Boolean showReferredTestsCount = ConfigurationProperties.getInstance().isPropertyValueEqual(ConfigurationProperties.Property.SHOW_REFERRED_TESTS_COUNT, "true");
 Boolean showPatientsDetailsInSampleLabelPrint = ConfigurationProperties.getInstance().isPropertyValueEqual(ConfigurationProperties.Property.SHOW_PATIENT_DETAILS_SAMPLE_LABEL_PRINT, "true");
 
-String chosenLanguage = SystemConfiguration.getInstance().getDefaultLocale().toLanguageTag()+"";
+String chosenLanguage = "";
 %>
 
 <%
 path = request.getContextPath();
 basePath = path + "/";
+chosenLanguage = SystemConfiguration.getInstance().getDefaultLocale().toLanguageTag()+"";
 %>
 
 <% if (chosenLanguage!=null && chosenLanguage.equalsIgnoreCase("ar-AR")) { %>

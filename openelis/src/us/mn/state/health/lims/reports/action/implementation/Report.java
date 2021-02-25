@@ -18,6 +18,10 @@ package us.mn.state.health.lims.reports.action.implementation;
 
 import static org.apache.commons.validator.GenericValidator.isBlankOrNull;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.sql.Date;
 import java.util.*;
 
@@ -25,7 +29,32 @@ import javax.xml.ws.Response;
 
 import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JRExporter;
+import net.sf.jasperreports.engine.JRParameter;
+import net.sf.jasperreports.engine.JRPrintText;
+import net.sf.jasperreports.engine.JRReport;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.JasperRunManager;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.export.JRPdfExporter;
+import net.sf.jasperreports.engine.export.JRXlsAbstractExporter;
+import net.sf.jasperreports.engine.export.JRXlsExporterParameter;
+import net.sf.jasperreports.engine.type.PrintOrderEnum;
+import net.sf.jasperreports.engine.type.RunDirectionEnum;
+import net.sf.jasperreports.engine.util.JRLoader;
+//import net.sf.jasperreports.engine.xml.JRXmlConstants;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+
+import us.mn.state.health.lims.common.util.JasperReportRtlUtil;
+/*import net.sf.jasperreports.export.SimpleCommonExportConfiguration;
+import net.sf.jasperreports.export.SimpleExporterConfiguration;
+import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
+import net.sf.jasperreports.export.SimplePdfExporterConfiguration;
+import net.sf.jasperreports.export.SimplePdfReportConfiguration;*/
 
 import org.apache.commons.validator.GenericValidator;
 
@@ -34,6 +63,7 @@ import us.mn.state.health.lims.common.util.ConfigurationProperties;
 import us.mn.state.health.lims.common.util.ConfigurationProperties.Property;
 import us.mn.state.health.lims.common.util.DateUtil;
 import us.mn.state.health.lims.common.util.StringUtil;
+import us.mn.state.health.lims.common.util.SystemConfiguration;
 import us.mn.state.health.lims.organization.dao.OrganizationDAO;
 import us.mn.state.health.lims.organization.daoimpl.OrganizationDAOImpl;
 import us.mn.state.health.lims.organization.valueholder.Organization;
@@ -55,6 +85,7 @@ public abstract class Report implements IReportCreator {
     protected HashMap<String, Object> reportParameters = null;
     protected boolean useLogo = ConfigurationProperties.getInstance().isPropertyValueEqual(Property.useLogoInReport, "true");
     private String fullReportFilename;
+    private Locale currentLoc = null;
     
 	protected void initializeReport() {
 		initialized = true;
@@ -96,7 +127,38 @@ public abstract class Report implements IReportCreator {
         reportParameters.put("usePageNumbers", ConfigurationProperties.getInstance().getPropertyValue(Property.USE_PAGE_NUMBERS_ON_REPORTS));
 
         ConfigurationProperties properties = ConfigurationProperties.getInstance();
-        reportParameters.put("REPORT_LOCALE", Locale.forLanguageTag(properties.getPropertyValue(Property.defaultLangLocale)));
+        currentLoc = Locale.forLanguageTag(properties.getPropertyValue(Property.defaultLangLocale));
+        reportParameters.put(JRParameter.REPORT_LOCALE, currentLoc);
+        //if (currentLoc.getLanguage().equalsIgnoreCase("ar")) {
+        	//reportParameters.put(JRXmlConstants.ATTRIBUTE_columnDirection, "RTL");
+        //}
+        //reportParameters.put((new Byte(JRPrintText.RUN_DIRECTION_RTL)).toString(), "RTL");
+        //String chosenLanguage = SystemConfiguration.getInstance().getDefaultLocale().getLanguage();  // IPLit
+        //reportParameters.put(JRXmlConstants.ATTRIBUTE_columnDirection, RunDirectionEnum.RTL);
+    }
+
+    private byte[] printRtlPdfReport() {
+    	//InputStream inStream = null;
+    	try {
+    		JasperReportRtlUtil mirrorDesign = new JasperReportRtlUtil();
+    		//JasperReport reporte = JasperCompileManager.compileReport(design);
+	        JasperPrint jasperPrint = JasperFillManager.fillReport(fullReportFilename, getReportParameters(), getReportDataSource());
+	        mirrorDesign.mirrorLayout(jasperPrint);
+			return JasperExportManager.exportReportToPdf(jasperPrint);
+    	} catch (Exception e) {
+    		e.printStackTrace();
+    	}
+    	/*} finally {
+            if (inStream != null) {
+                try {
+                    inStream.close();
+                } catch (IOException e) {
+                    //logger.error("Error closing stream", e);
+                	e.printStackTrace();
+                }
+            }
+        }*/
+    	return new byte[0];
     }
 
     /**
@@ -109,6 +171,9 @@ public abstract class Report implements IReportCreator {
      */
     @Override
     public byte[] runReport( ) throws Exception {
+    	if (currentLoc!=null && currentLoc.getLanguage().equalsIgnoreCase("ar")) {
+    		return printRtlPdfReport();
+    	}
         return JasperRunManager.runReportToPdf(fullReportFilename, getReportParameters(), getReportDataSource()); 
     }
 

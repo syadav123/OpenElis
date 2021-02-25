@@ -56,7 +56,6 @@ function displayHelp(){
 	if (window.focus) {newwindow.focus()}
 }
 
-var chosenLanguageVar1 = '<%= chosenLanguage %>';
 </script>
 
 <!-- New additions below by mark47 -->
