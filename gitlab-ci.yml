@@ -18,7 +18,7 @@ variables:
   # `installAtEnd` and `deployAtEnd` are only effective with recent version of the corresponding plugins.
   MAVEN_CLI_OPTS: "--batch-mode --errors --fail-at-end --show-version -DinstallAtEnd=true -DdeployAtEnd=true"
 
-# This template uses jdk8 for verifying and deploying images
+# This template uses jdk7 for verifying and deploying images for RTL
 image: frekele/ant:1.9.11-jdk7
 job 0:  
   stage: build
