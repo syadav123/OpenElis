@@ -58,4 +58,4 @@ jobs:
           platforms: linux/amd64,linux/arm64
           file: package/docker/openelis/Dockerfile
           push: true
-          tags: bahmni/openelis:${{env.ARTIFACT_VERSION}},bahmni/openelis:latest
+          tags: infoiplitin/openelis:${{env.ARTIFACT_VERSION}},infoiplitin/openelis:latest
