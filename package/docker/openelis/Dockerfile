@@ -28,7 +28,7 @@ COPY package/docker/openelis/templates/hibernate.cfg.xml.template /etc/bahmni-la
 COPY package/docker/openelis/templates/atomfeed.properties.template /etc/bahmni-lab/
 COPY package/resources/log4j2.xml ${WAR_DIRECTORY}/WEB-INF/classes/
 
-COPY OpenElis.zip /tmp/artifacts/
+COPY /tmp/ant/OpenElis.zip /tmp/artifacts/
 RUN unzip -d /tmp/artifacts/ /tmp/artifacts/OpenElis.zip
 RUN cp -r /tmp/artifacts/OpenElis/db_backup/. /opt/bahmni-lab/migrations/db_backup/
 RUN cp -r /tmp/artifacts/OpenElis/liquibase/. /opt/bahmni-lab/migrations/liquibase/
