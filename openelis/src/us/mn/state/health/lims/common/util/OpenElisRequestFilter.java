@@ -27,7 +27,8 @@ import java.io.IOException;
 
 public class OpenElisRequestFilter implements Filter {
     private Logger logger = Logger.getLogger(this.getClass());
-
+    private String encoding = null;
+	
 	public void destroy() {
 	}
 
@@ -36,6 +37,13 @@ public class OpenElisRequestFilter implements Filter {
 		request.setCharacterEncoding("UTF8");
         Transaction transaction = null;
         try {
+	    if (null == request.getCharacterEncoding()) {
+		request.setCharacterEncoding(encoding);
+            }
+	    // Set the default response content type and encoding
+	    response.setContentType("text/html; charset=UTF-8");
+	    response.setCharacterEncoding("UTF-8");
+
             transaction = HibernateUtil.getSession().beginTransaction();
             chain.doFilter(request, response);
             Boolean hasFailed = (Boolean)request.getAttribute(IActionConstants.REQUEST_FAILED);
@@ -67,5 +75,6 @@ public class OpenElisRequestFilter implements Filter {
     }
 
     public void init(FilterConfig filterConfig) throws ServletException {
-	}
+        if (encoding == null) encoding = "UTF-8";	
+    }
 }
