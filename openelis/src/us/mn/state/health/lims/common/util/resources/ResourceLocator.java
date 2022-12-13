@@ -22,6 +22,7 @@ import us.mn.state.health.lims.common.log.LogEvent;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.Properties;
 
 /**
@@ -66,8 +67,10 @@ public class ResourceLocator {
 		}
 		// Now load a java.util.Properties object with the properties
 		propertyFilePairs = new Properties();
+		InputStreamReader isrProperty = null;
 		try {
-			propertyFilePairs.load(propertyStream);
+			isrProperty = new InputStreamReader(propertyStream, "UTF-8");
+			propertyFilePairs.load(isrProperty);
 		} catch (IOException e) {
             //bugzilla 2154
 			LogEvent.logError("ResourceLocator","ResourceLocator()",e.toString());   		
@@ -79,6 +82,14 @@ public class ResourceLocator {
 					propertyStream = null;
 				} catch (Exception e) {
                     //bugzilla 2154
+			        LogEvent.logError("ResourceLocator","ResourceLocator()",e.toString());
+				}
+			}
+			if (null != isrProperty) {
+				try {
+					isrProperty.close();
+					isrProperty = null;
+				} catch (Exception e) {
 			        LogEvent.logError("ResourceLocator","ResourceLocator()",e.toString());
 				}
 			}
