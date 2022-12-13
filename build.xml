@@ -54,10 +54,10 @@
     <target name="java.compile"
             description="compile the source ">
         <mkdir dir="${target}"/>
-        <javac srcdir="${src}" destdir="${target}" encoding="iso-8859-1" classpathref="lib" source="1.7" target="1.7" debug="on"/>
-        <copy todir="${target}">
+        <javac srcdir="${src}" destdir="${target}" classpathref="lib" source="1.7" target="1.7" debug="on"/>
+        <copy todir="${target}" encoding="UTF-8">
             <fileset dir="${src}" includes="**/*.xml"/>
-            <fileset dir="${src}" includes="**/*.properties"/>
+            <fileset dir="${src}" includes="**/*.properties" />
         </copy>
     </target>
 
@@ -173,7 +173,7 @@
     <target name="test-only">
         <mkdir dir="${junit.output.dir}"/>
         <mkdir dir="${test.target}"/>
-        <javac srcdir="${test.src}" destdir="${test.target}" encoding="iso-8859-1" debug="on">
+        <javac srcdir="${test.src}" destdir="${test.target}" encoding="UTF-8" debug="on">
             <classpath>
                 <dirset dir="${target}"/>
                 <path refid="test.lib"/>
