@@ -37,8 +37,8 @@ public class OpenElisRequestFilter implements Filter {
         Transaction transaction = null;
         try {
             // Set the default response content type and encoding
-            response.setContentType("text/html; charset=UTF-8");
-            response.setCharacterEncoding("UTF-8");
+            // response.setContentType("text/html; charset=UTF-8");
+            // response.setCharacterEncoding("UTF-8");
 
             transaction = HibernateUtil.getSession().beginTransaction();
             chain.doFilter(request, response);
