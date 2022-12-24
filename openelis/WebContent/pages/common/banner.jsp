@@ -154,9 +154,9 @@ function displayHelp(){
     <select onchange="setLanguage(this.options[this.selectedIndex].value)">
         <option selected></option>
         <option value="en_US"><bean:message bundle="setOfLanguagesBundle" key="en_US"/></option>
-        <option value="fr-FR"><bean:message bundle="setOfLanguagesBundle" key="fr-FR"/></option>
+<!--         <option value="fr-FR"><bean:message bundle="setOfLanguagesBundle" key="fr-FR"/></option>
         <option value="es-ES"><bean:message bundle="setOfLanguagesBundle" key="es-ES"/></option>
-		<option value="pt-BR"><bean:message bundle="setOfLanguagesBundle" key="pt-BR"/></option>
+		<option value="pt-BR"><bean:message bundle="setOfLanguagesBundle" key="pt-BR"/></option> -->
 		<option value="ar-AR"><bean:message bundle="setOfLanguagesBundle" key="ar-AR"/></option>
     </select>
   </div>
