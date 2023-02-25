@@ -232,11 +232,17 @@ if (typeof Slick === "undefined") {
       $focusSink = $("<div tabIndex='0' hideFocus style='position:fixed;width:0;height:0;top:0;left:0;outline:0;'></div>").appendTo($container);
 
       $headerScroller = $("<div class='slick-header ui-state-default' style='overflow:hidden;position:relative;' />").appendTo($container);
-      $headers = $("<div class='slick-header-columns' style='left:-1000px' />").appendTo($headerScroller);
+      //$headers = $("<div class='grid-canvas grid-canvas-add-on' style='left:-1000px' />").appendTo($headerScroller);
+      if (!currentChosenArLanguageVar) {
+          $headers = $("<div class='slick-header-columns' style='left:-1000px' />").appendTo($headerScroller);
+      } else {
+          $headers = $("<div class='slick-header-columns' style='right:1000px' />").appendTo($headerScroller);
+      }
       $headers.width(getHeadersWidth());
 
       $headerRowScroller = $("<div class='slick-headerrow ui-state-default' style='overflow:hidden;position:relative;' />").appendTo($container);
       $headerRow = $("<div class='slick-headerrow-columns' />").appendTo($headerRowScroller);
+      //$headerRowSpacer = $("<div style='display:block;height:1px;position:absolute;top:0;left:0;'></div>")
       $headerRowSpacer = $("<div style='display:block;height:1px;position:absolute;top:0;left:0;'></div>")
           .css("width", getCanvasWidth() + scrollbarDimensions.width + "px")
           .appendTo($headerRowScroller);
@@ -252,7 +258,7 @@ if (typeof Slick === "undefined") {
         $headerRowScroller.hide();
       }
 
-      $viewport = $("<div class='slick-viewport' style='width:100%;overflow:auto;outline:0;position:relative;;'>").appendTo($container);
+      $viewport = $("<div class='slick-viewport' style='width:100%;overflow:auto;outline:0;position:relative;'>").appendTo($container);
       $viewport.css("overflow-y", options.autoHeight ? "hidden" : "auto");
 
       $canvas = $("<div class='grid-canvas' />").appendTo($viewport);
@@ -544,46 +550,90 @@ if (typeof Slick === "undefined") {
         });
       $headerRow.empty();
 
-      for (var i = 0; i < columns.length; i++) {
-        var m = columns[i];
+      // for (var i = 0; i < columns.length; i++) { // IPLit
+      if (options.currentChosenArLanguage) {
+          for (var i = (columns.length-1); i >= 0; --i) {
+            var m = columns[i];
 
-        var header = $("<div class='ui-state-default slick-header-column' />")
-            .html("<span class='slick-column-name'>" + m.name + "</span>")
-            .width(m.width - headerColumnWidthDiff)
-            .attr("id", "" + uid + m.id)
-            .attr("title", m.toolTip || "")
-            .data("column", m)
-            .addClass(m.headerCssClass || "")
-            .appendTo($headers);
+            var header = $("<div class='ui-state-default slick-header-column' />")
+                .html("<span class='slick-column-name'>" + m.name + "</span>")
+                .width(m.width - headerColumnWidthDiff)
+                .attr("id", "" + uid + m.id)
+                .attr("hindex", m.index)
+                .attr("title", m.toolTip || "")
+                .data("column", m)
+                .addClass(m.headerCssClass || "")
+                .appendTo($headers);
 
-        if (options.enableColumnReorder || m.sortable) {
-          header
-            .on('mouseenter', onMouseEnter)
-            .on('mouseleave', onMouseLeave);
-        }
+            if (options.enableColumnReorder || m.sortable) {
+              header
+                .on('mouseenter', onMouseEnter)
+                .on('mouseleave', onMouseLeave);
+            }
 
-        if (m.sortable) {
-          header.addClass("slick-header-sortable");
-          header.append("<span class='slick-sort-indicator' />");
-        }
+            if (m.sortable) {
+              header.addClass("slick-header-sortable");
+              header.append("<span class='slick-sort-indicator' />");
+            }
 
-        trigger(self.onHeaderCellRendered, {
-          "node": header[0],
-          "column": m
-        });
+            trigger(self.onHeaderCellRendered, {
+              "node": header[0],
+              "column": m
+            });
 
-        if (options.showHeaderRow) {
-          var headerRowCell = $("<div class='ui-state-default slick-headerrow-column l" + i + " r" + i + "'></div>")
-              .data("column", m)
-              .appendTo($headerRow);
+            if (options.showHeaderRow) {
+              var headerRowCell = $("<div class='ui-state-default slick-headerrow-column l" + i + " r" + i + "'></div>")
+                  .data("column", m)
+                  .appendTo($headerRow);
 
-          trigger(self.onHeaderRowCellRendered, {
-            "node": headerRowCell[0],
-            "column": m
-          });
-        }
+              trigger(self.onHeaderRowCellRendered, {
+                "node": headerRowCell[0],
+                "column": m
+              });
+            }
+          }
+      } else {
+          for (var i = 0; i < columns.length; i++) { 
+              var m = columns[i];
+            
+            var header = $("<div class='ui-state-default slick-header-column' />")
+                .html("<span class='slick-column-name'>" + m.name + "</span>")
+                .width(m.width - headerColumnWidthDiff)
+                .attr("id", "" + uid + m.id)
+                .attr("hindex", m.index)
+                .attr("title", m.toolTip || "")
+                .data("column", m)
+                .addClass(m.headerCssClass || "")
+                .appendTo($headers);
+
+            if (options.enableColumnReorder || m.sortable) {
+              header
+                .on('mouseenter', onMouseEnter)
+                .on('mouseleave', onMouseLeave);
+            }
+    
+            if (m.sortable) {
+              header.addClass("slick-header-sortable");
+              header.append("<span class='slick-sort-indicator' />");
+            }
+    
+            trigger(self.onHeaderCellRendered, {
+              "node": header[0],
+              "column": m
+            });
+    
+            if (options.showHeaderRow) {
+              var headerRowCell = $("<div class='ui-state-default slick-headerrow-column l" + i + " r" + i + "'></div>")
+                  .data("column", m)
+                  .appendTo($headerRow);
+
+              trigger(self.onHeaderRowCellRendered, {
+                "node": headerRowCell[0],
+                "column": m
+              });
+            }
+          }
       }
-
       setSortColumns(sortColumns);
       setupColumnResize();
       if (options.enableColumnReorder) {

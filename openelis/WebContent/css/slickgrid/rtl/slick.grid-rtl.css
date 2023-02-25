@@ -13,14 +13,14 @@ classes should alter those!
 
 .slick-header-columns, .slick-headerrow-columns {
   position: relative;
-  white-space: nowrap;
+  /* white-space: nowrap; */
   cursor: default;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .slick-header-column.ui-state-default {
   position: relative;
-  display: inline-block;
+  display: block; /* inline-block */
   overflow: hidden;
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
@@ -44,7 +44,7 @@ classes should alter those!
 }
 
 .slick-sort-indicator {
-  display: inline-block;
+  display:block;
   width: 8px;
   height: 5px;
   margin-right: 4px;
@@ -106,7 +106,7 @@ classes should alter those!
 }
 
 .slick-group-toggle {
-  display: inline-block;
+  display:block;
 }
 
 .slick-cell.highlighted {
@@ -135,7 +135,7 @@ classes should alter those!
 }
 
 .slick-reorder-proxy {
-  display: inline-block;
+  display:block;
   background: blue;
   opacity: 0.15;
   filter: alpha(opacity = 15);
@@ -143,7 +143,7 @@ classes should alter those!
 }
 
 .slick-reorder-guide {
-  display: inline-block;
+  display:block;
   height: 2px;
   background: blue;
   opacity: 0.7;

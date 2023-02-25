@@ -158,6 +158,7 @@ table td{
 
 #tabs .slick-header-columns, #tabs .slick-header.ui-state-default, #tabs .slick-headerrow.ui-state-default{
     border-bottom: none;
+    /* right: 1000px; */
 }
 #tabs #todaySamplesToCollectListContainer .slick-header-column.ui-state-default span.slick-column-name,
 #tabs #backlogSamplesToCollectListContainer .slick-header-column.ui-state-default span.slick-column-name,

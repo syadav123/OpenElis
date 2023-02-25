@@ -26,21 +26,31 @@ Boolean showReferredTestsCount = ConfigurationProperties.getInstance().isPropert
 Boolean showPatientsDetailsInSampleLabelPrint = ConfigurationProperties.getInstance().isPropertyValueEqual(ConfigurationProperties.Property.SHOW_PATIENT_DETAILS_SAMPLE_LABEL_PRINT, "true");
 
 String chosenLanguage = "";
+Boolean currentChosenArLanguage = false;
 %>
 
 <%
 path = request.getContextPath();
 basePath = path + "/";
 chosenLanguage = SystemConfiguration.getInstance().getDefaultLocale().toLanguageTag()+"";
+if (chosenLanguage!=null && chosenLanguage.equalsIgnoreCase("ar-AR")) {
+    currentChosenArLanguage = true;
+}
 %>
 
 <% if (chosenLanguage!=null && chosenLanguage.equalsIgnoreCase("ar-AR")) { %>
+<script type="text/javascript">
+var currentChosenArLanguageVar = true;
+</script>
 <link rel="stylesheet" type="text/css" href="<%=basePath%>css/slickgrid/rtl/examples-rtl.css" />
 <link rel="stylesheet" type="text/css" href="<%=basePath%>css/jquery_ui/rtl/jquery-ui-1.8.16.custom-rtl.css" />
 <link rel="stylesheet" type="text/css" href="<%=basePath%>css/jquery_ui/rtl/jquery.ui.tabs-rtl.css" />
 <link rel="stylesheet" type="text/css" href="<%=basePath%>css/slickgrid/rtl/slick.grid-rtl.css" />
 <link rel="stylesheet" type="text/css" href="<%=basePath%>css/slickgrid/rtl/dashboard-rtl.css" />
 <% } else { %>
+<script type="text/javascript">
+var currentChosenArLanguageVar = false;
+</script>
 <link rel="stylesheet" type="text/css" href="<%=basePath%>css/slickgrid/examples.css" />
 <link rel="stylesheet" type="text/css" href="<%=basePath%>css/jquery_ui/jquery-ui-1.8.16.custom.css" />
 <link rel="stylesheet" type="text/css" href="<%=basePath%>css/jquery_ui/jquery.ui.tabs.css" />
@@ -69,8 +79,6 @@ chosenLanguage = SystemConfiguration.getInstance().getDefaultLocale().toLanguage
 <script type="text/javascript" src="<%=basePath%>scripts/slickgrid/slick.autotooltips.js"></script>
 <script type="text/javascript" src="<%=basePath%>scripts/utils.js"></script>
 <script type="text/javascript" src="<%=basePath%>scripts/JsBarcode.all.min.js"></script>
-
-  
 
 <div>
     <div id="todayStat">
@@ -191,16 +199,14 @@ chosenLanguage = SystemConfiguration.getInstance().getDefaultLocale().toLanguage
         </div>
     </div>
 
-
     <div id="patientDetails" class="hide details">
-        <div class='details-more-info'><span class='details-key'>Patient ID : </span><span class='details-value' id="patientId"></span></div>
-        <div class='details-more-info'><span class='details-key'>Name : </span><span class='details-value' id="name"></span></div>
-        <div class='details-more-info'><span class='details-key'>Father/Husband's Name : </span><span class='details-value' id="primaryRelative"></span></div>
-        <div class='details-more-info'><span class='details-key'>Village : </span><span class='details-value' id="village"></span></div>
-        <div class='details-more-info'><span class='details-key'>Gender : </span><span  class='details-value' id="gender"></span></div>
-        <div class='details-more-info'><span class='details-key'>Age : </span><span class='details-value' id="age"></span></div>
-    </div>
-
+        <div class='details-more-info'><span class='details-key'> <bean:message key="dashboard.sample.column.patientID"/> : </span><span class='details-value' id="patientId"></span></div>
+        <div class='details-more-info'><span class='details-key'> <bean:message key="dashboard.sample.column.patientName"/> : </span><span class='details-value' id="name"></span></div>
+        <div class='details-more-info'><span class='details-key'> <bean:message key="patient.epiMiddleName"/> : </span><span class='details-value' id="primaryRelative"></span></div>
+        <div class='details-more-info'><span class='details-key'> <bean:message key="address.village"/> : </span><span class='details-value' id="village"></span></div>
+        <div class='details-more-info'><span class='details-key'> <bean:message key="gender.browse.title"/> : </span><span  class='details-value' id="gender"></span></div>
+        <div class='details-more-info'><span class='details-key'> <bean:message key="patient.age"/> : </span><span class='details-value' id="age"></span></div>
+    </div>
 </div>
 
 <script type="text/javascript">
@@ -210,7 +216,8 @@ chosenLanguage = SystemConfiguration.getInstance().getDefaultLocale().toLanguage
         enableCellNavigation: true,
         showHeaderRow: true,
         headerRowHeight: 35,
-        explicitInitialization: true
+        explicitInitialization: true,
+        currentChosenArLanguage: currentChosenArLanguageVar
     };
 
     var showStats = function(stats){
@@ -250,29 +257,29 @@ chosenLanguage = SystemConfiguration.getInstance().getDefaultLocale().toLanguage
 
        showStats(todayStats)
 
-        var todaySamplesToCollectObject = new order("#todaySamplesToCollectListContainer-slick-grid", todaySampleNotCollectedList, generateAllLinksForOrder, getColumnsForSampleNotCollected, false, showPriorityColumn);
+        var todaySamplesToCollectObject = new order("#todaySamplesToCollectListContainer-slick-grid", todaySampleNotCollectedList, generateAllLinksForOrder, getColumnsForSampleNotCollected, false, showPriorityColumn, <%= currentChosenArLanguage%>);
         var dataViewForTodaySamplesToCollect = new Slick.Data.DataView();
         var gridForTodaySamplesToCollect = new Slick.Grid(todaySamplesToCollectObject.div, dataViewForTodaySamplesToCollect, todaySamplesToCollectObject.columns,options);
         createGrid(gridForTodaySamplesToCollect, dataViewForTodaySamplesToCollect, todaySamplesToCollectObject, onRowSelection);
 
-        var backlogSamplesToCollectObject = new order("#backlogSamplesToCollectListContainer-slick-grid", backlogSampleNotCollectedList, generateAllLinksForOrder, getColumnsForSampleNotCollected, false, showPriorityColumn);
+        var backlogSamplesToCollectObject = new order("#backlogSamplesToCollectListContainer-slick-grid", backlogSampleNotCollectedList, generateAllLinksForOrder, getColumnsForSampleNotCollected, false, showPriorityColumn, <%= currentChosenArLanguage%>);
         var dataViewForBacklogSamplesToCollect = new Slick.Data.DataView();
         var gridForBacklogSamplesToCollect = new Slick.Grid(backlogSamplesToCollectObject.div, dataViewForBacklogSamplesToCollect, backlogSamplesToCollectObject.columns,options);
         createGrid(gridForBacklogSamplesToCollect, dataViewForBacklogSamplesToCollect, backlogSamplesToCollectObject, onRowSelection);
 
         if(<%= showReferredTestsCount%>) { // show referred Test count column in dashboard
-            var todayOrdersObject = new order("#todaySamplesCollectedListContainer-slick-grid", todayOrderList, generateAllLinksForOrder, getColumnsForTodayOrderWithReferredOutTestsCountColumn, <%= alwaysValidate%>, showPriorityColumn);
+            var todayOrdersObject = new order("#todaySamplesCollectedListContainer-slick-grid", todayOrderList, generateAllLinksForOrder, getColumnsForTodayOrderWithReferredOutTestsCountColumn, <%= alwaysValidate%>, showPriorityColumn, <%= currentChosenArLanguage%>);
         } else {
-            var todayOrdersObject = new order("#todaySamplesCollectedListContainer-slick-grid", todayOrderList, generateAllLinksForOrder, getColumnsForTodayOrder, <%= alwaysValidate%>, showPriorityColumn);
+            var todayOrdersObject = new order("#todaySamplesCollectedListContainer-slick-grid", todayOrderList, generateAllLinksForOrder, getColumnsForTodayOrder, <%= alwaysValidate%>, showPriorityColumn, <%= currentChosenArLanguage%>);
         }
         var dataViewForTodayTab = new Slick.Data.DataView();
         var gridForTodayOrder = new Slick.Grid(todayOrdersObject.div, dataViewForTodayTab, todayOrdersObject.columns,options);
         createGrid(gridForTodayOrder, dataViewForTodayTab, todayOrdersObject, onRowSelection);
 
         if(<%= showReferredTestsCount%>) { // show referred Test count column in dashboard
-            var backlogOrdersObject = new order("#backlogSamplesCollectedListContainer-slick-grid", backlogOrderList, generateAllLinksForOrder, getColumnsForBacklogOrderWithReferredOutTestsCountColumn, <%= alwaysValidate%>, showPriorityColumn);
+            var backlogOrdersObject = new order("#backlogSamplesCollectedListContainer-slick-grid", backlogOrderList, generateAllLinksForOrder, getColumnsForBacklogOrderWithReferredOutTestsCountColumn, <%= alwaysValidate%>, showPriorityColumn, <%= currentChosenArLanguage%>);
         }else {
-            var backlogOrdersObject = new order("#backlogSamplesCollectedListContainer-slick-grid", backlogOrderList, generateAllLinksForOrder, getColumnsForBacklogOrder, <%= alwaysValidate%>, showPriorityColumn);
+            var backlogOrdersObject = new order("#backlogSamplesCollectedListContainer-slick-grid", backlogOrderList, generateAllLinksForOrder, getColumnsForBacklogOrder, <%= alwaysValidate%>, showPriorityColumn, <%= currentChosenArLanguage%>);
         }
         var dataViewForBacklogTab = new Slick.Data.DataView();
         var gridForBacklogOrder = new Slick.Grid(backlogOrdersObject.div, dataViewForBacklogTab, backlogOrdersObject.columns,options);

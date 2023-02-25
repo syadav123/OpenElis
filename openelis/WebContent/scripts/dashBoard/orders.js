@@ -1,9 +1,20 @@
 
-function order(div, orderArray, generateLink, getColumns, alwaysValidate, showPriorityColumn) {
+function order(div, orderArray, generateLink, getColumns, alwaysValidate, showPriorityColumn, currentChosenArLanguage) {
      this.div = div;
      this.orderArray = orderArray;
-     this.columns = getColumns(showPriorityColumn, alwaysValidate);
-         this.indexesOfNonSearchableColumns = function(){
+     this.columns = getColumns(showPriorityColumn, alwaysValidate, currentChosenArLanguage);
+     if (currentChosenArLanguage) {  // IPlit
+        var moddedCols = [];
+        let indexVar = 0;
+        for (var i = (this.columns.length-1); i >= 0; --i) {
+            var array_element = this.columns[i];
+            array_element.index = indexVar;
+            moddedCols.push(array_element);
+            ++indexVar;
+        }
+        this.columns = moddedCols;
+     }
+     this.indexesOfNonSearchableColumns = function(){
                 var indexes = [];
 
                 jQuery.each(this.columns, function(id, column){
@@ -209,7 +220,7 @@ function getColumnsForBacklogOrder(showPriorityColumn, alwaysValidate) {
     }
 }
 
-function getColumnsForSampleNotCollected(showPriorityColumn) {
+function getColumnsForSampleNotCollected(showPriorityColumn, alwaysValidate, currentChosenArLanguage) {
     if(showPriorityColumn) {
         return [
             {id:"stNumber", name:jQuery("#translatedColumnNames").attr("data-patientID"), field:"stNumber", sortable:true, editor:Slick.Editors.Text, index:0, minWidth:160},
