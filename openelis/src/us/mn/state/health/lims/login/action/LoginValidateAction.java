@@ -1,3 +1,4 @@
+
 /*
 * The contents of this file are subject to the Mozilla Public License
 * Version 1.1 (the "License"); you may not use this file except in
@@ -60,6 +61,10 @@ public class LoginValidateAction extends LoginBaseAction {
 			HttpServletResponse response) throws Exception {
 
 		String forward = FWD_SUCCESS;
+
+		if (alreadyLoggedIn(request)) return mapping.findForward(forward);
+		else request.getSession().invalidate();
+
 		BaseActionForm dynaForm = (BaseActionForm) form;
 
 		// server-side validation (validation.xml)

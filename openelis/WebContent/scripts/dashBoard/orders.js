@@ -69,7 +69,7 @@ function generateAllLinksForOrder(order, alwaysValidate){
 
     var labelMessage = jQuery("#translatedColumnNames").attr("data-link-label");
     var labelIcon = '<img style="cursor: pointer" id="actionIcon" src="images/sampleLabelPrint.png" title="'+labelMessage+'">';
-    var sampleLabelLink = "<a class='label' accessionNumber='"+order.accessionNumber+"' stNumber='"+order.stNumber+"' collectionDate='"+order.collectionDate+"'>"+labelIcon+"</a>";
+    var sampleLabelLink = "<a class='label' accessionNumber='"+order.accessionNumber+"' stNumber='"+order.stNumber+"' collectionDate='"+order.collectionDate+"' collectionDateStr='"+order.collectionDateString+"'>"+labelIcon+"</a>";
 
 
     if(alwaysValidate){
@@ -220,7 +220,7 @@ function getColumnsForBacklogOrder(showPriorityColumn, alwaysValidate) {
     }
 }
 
-function getColumnsForSampleNotCollected(showPriorityColumn, alwaysValidate, currentChosenArLanguage) {
+function getColumnsForSampleNotCollected(showPriorityColumn) {
     if(showPriorityColumn) {
         return [
             {id:"stNumber", name:jQuery("#translatedColumnNames").attr("data-patientID"), field:"stNumber", sortable:true, editor:Slick.Editors.Text, index:0, minWidth:160},

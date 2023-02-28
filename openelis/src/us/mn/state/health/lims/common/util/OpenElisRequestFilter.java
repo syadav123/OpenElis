@@ -17,7 +17,8 @@
 */
 package us.mn.state.health.lims.common.util;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 import org.hibernate.Transaction;
 import us.mn.state.health.lims.common.action.IActionConstants;
 import us.mn.state.health.lims.hibernate.HibernateUtil;
@@ -26,20 +27,16 @@ import javax.servlet.*;
 import java.io.IOException;
 
 public class OpenElisRequestFilter implements Filter {
-    private Logger logger = Logger.getLogger(this.getClass());
-    
-    public void destroy() {
-    }
+    private Logger logger = LogManager.getLogger(this.getClass());
 
-    public void doFilter(ServletRequest request, ServletResponse response,
-            FilterChain chain) throws IOException, ServletException {
-        request.setCharacterEncoding("UTF8");
+	public void destroy() {
+	}
+
+	public void doFilter(ServletRequest request, ServletResponse response,
+			FilterChain chain) throws IOException, ServletException {
+		request.setCharacterEncoding("UTF8");
         Transaction transaction = null;
         try {
-            // Set the default response content type and encoding
-            // response.setContentType("text/html; charset=UTF-8");
-            // response.setCharacterEncoding("UTF-8");
-
             transaction = HibernateUtil.getSession().beginTransaction();
             chain.doFilter(request, response);
             Boolean hasFailed = (Boolean)request.getAttribute(IActionConstants.REQUEST_FAILED);
@@ -56,7 +53,7 @@ public class OpenElisRequestFilter implements Filter {
             HibernateUtil.closeSession();
         }
 
-    }
+	}
 
     private void rollback(Transaction transaction) {
         if (transaction.isActive()) {
@@ -71,5 +68,5 @@ public class OpenElisRequestFilter implements Filter {
     }
 
     public void init(FilterConfig filterConfig) throws ServletException {
-    }
+	}
 }
