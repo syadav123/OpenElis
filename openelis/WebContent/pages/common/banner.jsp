@@ -40,7 +40,7 @@ function setLanguage( language ){
 	
 	if( update ){
 		var form = window.document.forms[0];
-		form.action = "LoginPage.do?lang=" + language;
+		form.action = "LogoutPage.do?lang=" + language;
 		form.submit();
 	}
 }
@@ -115,7 +115,7 @@ function displayHelp(){
 				if (request.getSession().getAttribute(IActionConstants.USER_SESSION_DATA) != null) {
 					usd = (UserSessionData) request.getSession().getAttribute(IActionConstants.USER_SESSION_DATA);
 			%>
-			<div id="user-info"><div><%=usd.getElisUserName()%> - <html:link page="/LoginPage.do" styleId="log-out-link" titleKey="homePage.menu.logOut.toolTip"><bean:message key="homePage.menu.logOut.toolTip"/></html:link></div></div>
+			<div id="user-info"><div><%=usd.getElisUserName()%> - <html:link page="/LogoutPage.do" styleId="log-out-link" titleKey="homePage.menu.logOut.toolTip"><bean:message key="homePage.menu.logOut.toolTip"/></html:link></div></div>
 			<%
 				}
 			%>
